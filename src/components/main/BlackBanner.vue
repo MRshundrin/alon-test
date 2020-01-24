@@ -12,57 +12,65 @@
 		<div id="work-directions-wrapper">
 			<div id="work-directions-content">
 				<button @click="refresh"><i class="fas fa-chevron-right"></i></button>
-				<div class="work-directions" v-if="first">
-						<div class="work-directions-card">
+				<div class="work-directions">
+						<div class="work-directions-card" v-if="counter == 1">
 							<h4>עבירות מין</h4>
 							<p>עבירות מין מאגדות תחתן קשת רחבה של מקרים והן נחשבות לתחום משפטי מורכב הדורש בקיאות והיכרות עם החוק והפסי</p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 1">
 							<h4>עבירות סמים</h4>
 							<p>משרד עו"ד אלון ארז מתמחה בייצוג חשודים ונאשמים בעבירות סמים על סוגיהן השונים, החל מסחר וייבוא ועד להחזקה. </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 1">
 							<h4>הטרדה מינית</h4>
 							<p>אם אתם חשודים בהטרדה מינית אתם זקוקים לייעוץ עו"ד מקצועי בתחום הפלילי שילווה וייצג אתכם הן במהלך חקירות </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 1">
 							<h4>רצח</h4>
 							<p>עבירת רצח היא אחת החמורות ביותר בתחום המשפט הפלילי ולכן יש לשכור את שירותיו של עורך דין פלילי בתל אביב, עו"ד </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-				</div>
-			
-				<div class="work-directions" v-if="second">
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 2">
 							<h4>עבירות סמים</h4>
 							<p>משרד עו"ד אלון ארז מתמחה בייצוג חשודים ונאשמים בעבירות סמים על סוגיהן השונים, החל מסחר וייבוא ועד להחזקה. </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 2">
 							<h4>עבירות מין</h4>
 							<p>עבירות מין מאגדות תחתן קשת רחבה של מקרים והן נחשבות לתחום משפטי מורכב הדורש בקיאות והיכרות עם החוק והפסי</p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 2">
 							<h4>רצח</h4>
 							<p>עבירת רצח היא אחת החמורות ביותר בתחום המשפט הפלילי ולכן יש לשכור את שירותיו של עורך דין פלילי בתל אביב, עו"ד </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
-						<div class="work-directions-card">
+						<div class="work-directions-card" v-if="counter == 2">
 							<h4>הטרדה מינית</h4>
 							<p>אם אתם חשודים בהטרדה מינית אתם זקוקים לייעוץ עו"ד מקצועי בתחום הפלילי שילווה וייצג אתכם הן במהלך חקירות </p>
 							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
 						</div>
 				</div>
-				
+				<div class="work-directions-mobile">
+					<div class="work-directions-card" v-if="counter == 1">
+							<h4>עבירות מין</h4>
+							<p>עבירות מין מאגדות תחתן קשת רחבה של מקרים והן נחשבות לתחום משפטי מורכב הדורש בקיאות והיכרות עם החוק והפסי</p>
+							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
+						</div>
+						<div class="work-directions-card" v-if="counter == 2">
+							<h4>עבירות סמים</h4>
+							<p>משרד עו"ד אלון ארז מתמחה בייצוג חשודים ונאשמים בעבירות סמים על סוגיהן השונים, החל מסחר וייבוא ועד להחזקה. </p>
+							<a href="">קרא עוד <i class="fas fa-chevron-left"></i></a>
+						</div>
+				</div>
 				<button @click="refresh"><i class="fas fa-chevron-left"></i></button>
 			</div>
 			<div class="dot-section">
-				<div class="dot" :class="{ active: first }"></div>
-				<div class="dot" :class="{ active: second }"></div>
+				<div class="dot" :class="{ active: counter == 1 }"></div>
+				<div class="dot" :class="{ active: counter == 2 }"></div>
 			</div>
 		</div>
 	</div>
@@ -73,13 +81,15 @@
 	export default {
 		name: 'blackBanner',
 		data: () => ({
-			first: true,
-			second: false
+			counter: 1
 		}),
 		methods: {
 			refresh () {
-				this.first = !this.first
-				this.second = !this.second
+				if (this.counter == 1) {
+          this.counter = 2
+        } else {
+          this.counter = 1
+        }
 			}
 		}
 	}
@@ -147,6 +157,10 @@
 	#work-directions-content {
 		width: 1510px;
 		@include flex;
+	}
+
+	.work-directions-mobile {
+		display: none;
 	}
 
 	.work-directions {
@@ -234,6 +248,69 @@
 		
 		.active {
 			background-color: #007eef;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+  #black-banner {
+		height: 606px;
+		background: url(../../../public/img/‏‏‏‏‏‏‏‏home/05/criminal_bg_mobile.png);
+		background-size: cover;
+		background-position: -135px;
+		padding: 50px 7%;
+		
+		
+
+		#information-wrapper {
+			width: 100%;
+			height: 450px;
+			padding-right: 17px;
+		}
+
+		h2 {
+			font-size: 36px;
+			line-height: 36px;
+		}
+		
+		p {
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+
+	#work-directions-wrapper {
+		height: 187px;
+		bottom: -117px;
+		z-index: 1;
+
+		#work-directions-content {
+			width: 377px;
+			@include flex;
+		}
+
+		.work-directions-mobile {
+			@include flex;
+			width: 285px;
+			height: 140px;
+
+			.work-directions-card {
+				width: 100%;
+				height: 100%;
+				padding: 25px 18px 0 0;
+
+				p {
+					width: 260px;
+				}
+			}
+		}
+		
+		.work-directions {
+			display: none;	
+		}
+		
+		button {
+			width: 36px;
 		}
 	}
 }

@@ -69,4 +69,58 @@
 	}
 }
 
+@media screen and (max-width: 500px) {
+  #military-banner {
+		height: 1120px;
+		background-size: cover;
+		background-position: 20px;;
+		background-repeat: no-repeat;
+		color: $main-color;
+		margin-top: 50px;
+		padding: 175px 14%;
+		box-sizing: border-box;
+		position: relative;
+
+		#information-wrapper {
+			width: 583px;
+			height: 444px;
+			overflow: auto;
+			text-align: right;
+			padding-right: 26px;
+		
+
+				&::-webkit-scrollbar {
+					width: 1px;
+				}
+				&::-webkit-scrollbar-track-piece {
+					background-color: #dfe0e0;
+				}
+				&::-webkit-scrollbar-thumb {
+					background-color: #a8a8a8;
+				}
+		}
+
+		.subtitle {
+			font-family: $font-bold;
+			font-size: 22px;
+			line-height: 28px;
+		}
+
+		h2 {
+			font-family: $font-bold;
+			font-size: 48px;
+			line-height: 48px;
+		}
+		
+		p {
+			font-family: $font;
+			font-size: 18px;
+			margin-top: 10px;
+			line-height: 28px;
+			font-weight: 100;
+		}
+	}
+}
+
+
 </style>

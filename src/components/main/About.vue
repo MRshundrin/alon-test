@@ -94,4 +94,42 @@
 	}
 }
 
+@media screen and (max-width: 500px) {
+	#about-section {
+		margin-top: 60px;
+		margin-bottom: 60px;
+
+		h2 {
+			font-size: 36px;
+		}
+
+		&-content {
+			width: 344px;
+			height: 561px;
+		
+			@include flex(column, center, stretch);
+
+			div {
+				width: 100%;
+			}
+
+			&-left {
+				padding: 0 25px 30px 0;
+				box-sizing: border-box;
+
+				h3 {
+					font-size: 22px;
+				}
+
+				p {
+					width: 300px;
+				}
+			}
+
+			&-right {
+				height: 198px;
+			}
+		}
+	}
+}
 </style>

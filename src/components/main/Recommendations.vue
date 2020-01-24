@@ -231,9 +231,7 @@
   export default {
     name: 'recomendation',
     data: () => ({
-      counter: 1,
-      first: true,
-      second: false
+      counter: 1
     }),
     methods: {
       refresh () {
