@@ -130,4 +130,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 500px) {
+  #form-section {
+		display: none;
+	}
+}
+
 </style>

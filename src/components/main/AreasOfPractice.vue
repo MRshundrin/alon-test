@@ -87,7 +87,52 @@
 	.criminal-card {
 		background: url(../../../public/img/‏‏‏‏‏‏‏‏home/02/criminal.png);
 	}
+}
 
+@media screen and (max-width: 500px) {
+
+	#areas-section {
+		padding: 25px 0;
+		margin: 0 auto;
+
+		h2 {
+			font-size: 24px;
+		}
+
+		#areas-cards-wrapper {
+			width: 342px;
+			height: 470px;
+			margin: 20px auto 0 auto;
+			@include flex(column);
+		}
+
+		.areas-card {
+			width: 342px;
+			height: 224px;
+			@include flex(column, flex-start, flex-start);
+			background-size: cover;
+
+			h3 {
+				font-size: 34px;
+				margin: 0;
+			}
+
+			p {
+				width: 265px;
+				font-size: 16px;
+				line-height: 22px;
+				margin-top: 10px;
+			}
+
+			a {
+				width: 94px;
+				height:36px;
+				font-size: 17px;
+				bottom: 20px;
+				padding: 7px 0;
+			}
+		}
+	}
 }
 
 </style>
