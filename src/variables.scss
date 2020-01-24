@@ -1,0 +1,36 @@
+$main-color: #00284c;
+$second-color: #494949;
+$text-color: #202b2f;
+$light-color: #ffffff;
+
+$font-bold: "Almoni Neue DL 4.0 AAA Black";
+$font: "Almoni DL 4.0 AAA";
+
+@mixin flex ($flex-direction: row, $justify-content: space-between, $align-items: center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+body {
+	margin: 0; 
+	padding: 0;
+	font-family: $font;
+}
+
+h1,
+h2,
+p {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
