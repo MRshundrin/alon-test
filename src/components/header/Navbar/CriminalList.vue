@@ -51,4 +51,11 @@
 	}	
 }
 
+@media screen and (max-width: 500px) {
+  #criminal-list {
+		column-count: 1;
+		height: auto;
+	} 
+}
+
 </style>

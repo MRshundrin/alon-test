@@ -2,6 +2,7 @@
   <div id="navbar-wrapper">
     <ul id="navbar" dir="rtl">
 			<li class="navbar-item"><a href="">ראשי</a></li>
+
 			<li class="navbar-item" id="detail-item">
 				<a href="">התמחות המשרד <i class="fas fa-chevron-down"></i></a>
 				<ul id="more">
@@ -25,11 +26,11 @@
 					</li>
 					<li class="military-list">
 						<p class="category-title">משפט צבאי</p>
-						<MilitaryList/>
+						<MilitaryList class="military-list-component"></MilitaryList>
 					</li>
 					<li class="traffic-list">
 						<p class="category-title">משפט תעבורה</p>
-						<TrafficList/>
+						<TrafficList class="traffic-list-component"></TrafficList>
 					</li>
 				</ul>
 			</li>
@@ -100,22 +101,22 @@
 }
 
 .pop-up-button {
-	background: $main-color;
-
-	button {
-		background: transparent;
-		border: none;
-		font-family: $font-bold;
-		color: $light-color;
-		font-size: 19px;
-		line-height: 55px;
-		outline: none;
-	}
-
-	&:hover {
 		background: $main-color;
+
+		button {
+			background: transparent;
+			border: none;
+			font-family: $font-bold;
+			color: $light-color;
+			font-size: 19px;
+			line-height: 55px;
+			outline: none;
+		}
+
+		&:hover {
+			background: $main-color;
+		}
 	}
-}
 
 .category-title {
 	color: $light-color;
@@ -216,103 +217,85 @@
 }
 
 #popup-wrapper {
-    @include flex(row, center, center);
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+  @include flex(row, center, center);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
 
-    #popup {
-      width: 732px;
-      height: 365px;
-      position: relative;
-      @include flex;
+  #popup {
+    width: 732px;
+    height: 365px;
+    position: relative;
+    @include flex;
 
-      img {
-        width: 50%;
-        height: 100%;
-      }
-    }
-
-    #popup-form {
+    img {
       width: 50%;
       height: 100%;
-      @include flex(column, center);
-      background: white;
-
-      input {
-        width: 255px;
-        height: 44px;
-        background-color: #f3f6f8;
-        color: #454545;
-        font-family: $font;
-        font-size: 17px;
-        border: none;
-        padding-right: 15px;
-        margin: 10px;
-
-        &::placeholder {
-          color: #454545
-        }
-      }
-
-      select {
-        width: 270px;
-        height: 44px;
-        background-color: #f3f6f8;
-        border: none;
-        color: #454545;
-        font-size: 17px;
-        margin: 10px;
-      }
-
-      button {
-        width: 147px;
-        height: 44px;
-        background-color: #007eef;
-        border: none;
-        padding: 0;
-        color: #ffffff;
-        font-family: $font-bold;
-        font-size: 19px;
-
-        i {
-          font-size: 9px;
-        }
-      }
-
-      h4 {
-        color: $main-color;
-        font-family: $font-bold;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 45px;
-        margin: 0;
-      }
-    }
-
-    #close-btn {
-      background: transparent;
-      font-size: 19px;
-      color: rgba(255, 255, 255, 0.6);
-      outline: none;
-      border: none;
-      position: absolute;
-      right: -22px;
-      top: -22px;
-
     }
   }
 
+  #popup-form {
+    width: 50%;
+    height: 100%;
+    @include flex(column, center);
+    background: white;
 
-	@media screen and (max-width: 500px) {
-		#navbar-wrapper {
-			display: none;
-		}
-	}
+    input {
+      width: 255px;
+      height: 44px;
+      background-color: #f3f6f8;
+      color: #454545;
+      font-family: $font;
+      font-size: 17px;
+      border: none;
+      padding-right: 15px;
+      margin: 10px;
+
+      &::placeholder {
+        color: #454545
+      }
+    }
+
+    button {
+      width: 147px;
+      height: 44px;
+      background-color: #007eef;
+      border: none;
+      padding: 0;
+      color: #ffffff;
+      font-family: $font-bold;
+      font-size: 19px;
+
+      i {
+        font-size: 9px;
+      }
+    }
+
+    h4 {
+      color: $main-color;
+      font-family: $font-bold;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 45px;
+      margin: 0;
+    }
+  }
+
+  #close-btn {
+    background: transparent;
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.6);
+    outline: none;
+    border: none;
+    position: absolute;
+    right: -22px;
+    top: -22px;
+  }
+}
 </style>
 
 <script>

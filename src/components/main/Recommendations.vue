@@ -245,9 +245,9 @@
   }
 </script>
 
+
 <style lang="scss">
 @import '@/variables.scss';
-
 
 #recommendations-wrapper {
   height: 585px;
@@ -398,8 +398,12 @@
   }
 
   #recommendations-content {
-    width: 400px;
+    width: 100%;
     @include flex;
+
+    button {
+			width: 36px;
+		}
   }
 
   .recommendations {

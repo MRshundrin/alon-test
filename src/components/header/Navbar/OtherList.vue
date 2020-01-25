@@ -19,6 +19,7 @@
 
 <style lang="scss">
 @import '@/variables.scss';
+
 #other-list {
 	list-style-type: none;
 

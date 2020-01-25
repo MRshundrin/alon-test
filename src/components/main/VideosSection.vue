@@ -4,46 +4,65 @@
 		<div id="videos-slider-wrapper">
 			<div id="videos-slider-content">
 				<button @click="refresh"><i class="fas fa-chevron-right"></i></button>
-				<div class="videos-slider" v-if="first">
-					<div class="videos-slider-card">
+				<div class="videos-slider">
+					<div class="videos-slider-card" v-if="counter == 1">
 						<div class="video-screenshot first-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
 						<p class="video-views">כאן 11</p>
 						<p class="video-name">עבירות אלימות במשפחה - מגיעים מוכנים לחקירה - עורך דין פלילי אלון ארז</p>
 					</div>
-					<div class="videos-slider-card">
+
+					<div class="videos-slider-card" v-if="counter == 1">
 						<div class="video-screenshot second-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
 						<p class="video-views">חדשות 10</p>
 						<p class="video-name">קנסות לצרכי זנות - עו"ד אלון ארז</p>
 					</div>
-					<div class="videos-slider-card">
+
+					<div class="videos-slider-card" v-if="counter == 1">
 						<div class="video-screenshot third-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
 						<p class="video-views">ערוץ 2</p>
 						<p class="video-name">חייל בצה"ל - חוקרי מצ"ח מזמנים אותך לחקירה בחשד לעבירות סמים, מה תעשה?</p>
 					</div>
-				</div>
-			
-				<div class="videos-slider" v-if="second">
-					<div class="videos-slider-card">
+
+					<div class="videos-slider-card" v-if="counter == 2">
 						<div class="video-screenshot third-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
 						<p class="video-views">ערוץ 2</p>
 						<p class="video-name">חייל בצה"ל - חוקרי מצ"ח מזמנים אותך לחקירה בחשד לעבירות סמים, מה תעשה?</p>
 					</div>
-					<div class="videos-slider-card">
+
+					<div class="videos-slider-card" v-if="counter == 2">
 						<div class="video-screenshot first-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
 						<p class="video-views">כאן 11</p>
 						<p class="video-name">עבירות אלימות במשפחה - מגיעים מוכנים לחקירה - עורך דין פלילי אלון ארז</p>
 					</div>
-					<div class="videos-slider-card">
+
+					<div class="videos-slider-card" v-if="counter == 2">
+						<div class="video-screenshot second-video">
+							<button><i class="fas fa-play"></i></button>
+						</div>
+						<p class="video-views">חדשות 10</p>
+						<p class="video-name">קנסות לצרכי זנות - עו"ד אלון ארז</p>
+					</div>
+				</div>
+				<div class="videos-slider-mobile">
+					<div class="videos-slider-card" v-if="counter == 1">
+						<div class="video-screenshot first-video">
+							<button><i class="fas fa-play"></i></button>
+						</div>
+						<p class="video-views">כאן 11</p>
+						<p class="video-name">עבירות אלימות במשפחה - מגיעים מוכנים לחקירה - עורך דין פלילי אלון ארז</p>
+					</div>
+
+					<div class="videos-slider-card" v-if="counter == 2">
 						<div class="video-screenshot second-video">
 							<button><i class="fas fa-play"></i></button>
 						</div>
@@ -54,8 +73,8 @@
 				<button @click="refresh"><i class="fas fa-chevron-left"></i></button>
 			</div>
 			<div class="dot-section">
-				<div class="dot" :class="{ active: first }"></div>
-				<div class="dot" :class="{ active: second }"></div>
+				<div class="dot" :class="{ active: counter == 1 }"></div>
+				<div class="dot" :class="{ active: counter == 2 }"></div>
 			</div>
 		</div>
 	</div>
@@ -64,17 +83,19 @@
 <script>
 
 	export default {
-		name: 'blackBanner',
+		name: 'VideoSection',
 		data: () => ({
-			first: true,
-			second: false
-		}),
-		methods: {
-			refresh () {
-				this.first = !this.first
-				this.second = !this.second
-			}
-		}
+      counter: 1
+    }),
+    methods: {
+      refresh () {
+        if (this.counter == 1) {
+          this.counter = 2
+        } else {
+          this.counter = 1
+        }
+      }
+    }
 	}
 </script>
 
@@ -103,6 +124,10 @@
 	#videos-slider-content {
 		width: 1500px;
 		@include flex(row, space-between, baseline);
+	}
+
+	.videos-slider-mobile {
+		display: none;
 	}
 
 	.videos-slider {
@@ -165,14 +190,6 @@
 			.third-video {
 				background: url(../../../public/img/‏‏‏‏‏‏‏‏home/06/third_video.png);
 			}
-
-			p {
-				color: $second-color;
-				font-family: $font;
-				font-size: 17px;
-				line-height: 20px;
-				font-weight: 300;
-			}
 		}	
 	}
 	
@@ -197,6 +214,69 @@
 		
 		.active {
 			background-color: #007eef;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+  #videos-wrapper {
+		width: 100%;
+		height: 475px;
+
+		h2 {
+			font-size: 36px;
+			line-height: 30px;
+			margin: 56px auto 35px auto;
+			text-align: center;
+		}
+	}
+
+	#videos-slider-wrapper {
+		width: 100%;
+		height: 275px;
+
+		#videos-slider-content {
+			width: 100%;
+			height: 100%;
+		}
+
+		.videos-slider-mobile {
+			display: block;
+			.videos-slider-card {
+				width: 286px;
+				height: 260px;
+
+				.video-views {
+					font-size: 16px;
+					padding: 10px 0;
+				}
+
+				.video-name {
+					font-size: 20px;
+					margin: 0;
+					line-height: 15px;
+				}
+
+				.video-screenshot {
+					width: 286px;
+					height: 161px;
+					background-size: cover;
+
+					button {
+						width: 50px;
+						height: 52px;
+						padding: 14px;
+					}
+				}
+			}	
+		}
+
+		.videos-slider {
+			display: none;
+		}
+		
+		button {
+			width: 36px;
 		}
 	}
 }

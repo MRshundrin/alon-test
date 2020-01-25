@@ -14,8 +14,8 @@
 					<li><a href="">צור קשר</a></li>       
 				</ul>
 				<div id="social-links">
-					<a href="#"><img src="img/‏‏‏‏‏‏‏‏home/footer/facebook_logo.png" alt="logo"></a>
 					<a href="#"><img src="img/‏‏‏‏‏‏‏‏home/footer/youtube_logo.png" alt="logo"></a>
+					<a href="#"><img src="img/‏‏‏‏‏‏‏‏home/footer/facebook_logo.png" alt="logo"></a>
 				</div>
 			</div>
 		</div>
@@ -29,6 +29,20 @@
 				<img src="img/‏‏‏‏‏‏‏‏home/footer/digotouch_logo.png" alt="logo">
 			</div>
 		</div>
+		<div id="second-footer-contact">
+			<div>
+				<img src="img/‏‏‏‏‏‏‏‏home/footer/phone_white.png" alt="phone_white">
+				<p>זמין 24 שעות ביממה</p>
+			</div>
+			<div class="mail-white">
+				<img src="img/‏‏‏‏‏‏‏‏home/footer/mail_white.png" alt="mail_white">
+				<p>ייעוץ ראשוני</p>
+			</div>
+			<div>
+				<img src="img/‏‏‏‏‏‏‏‏home/footer/viber_white.png" alt="viber_white">
+				<p>וואטסאפ</p>
+			</div>
+		</div>
 		<a href="#header-wrapper" class="goUP"><img src="img/‏‏‏‏‏‏‏‏home/footer/arrow_top.png" alt="logo"></a>
 	</div>
 </template>
@@ -40,6 +54,10 @@
 	width: 100%;
 	@include flex(column);
 	position: relative;
+
+	#second-footer-contact {
+		display: none;
+	}
 
 	#navigations-links-wrapper {
 		width: 100%;
@@ -95,6 +113,60 @@
 		right: 0;
 		top: 27px;
 	}
+}
+
+@media screen and (max-width: 500px) {
+  #second-footer-wrapper {
+
+		#navigations-links-wrapper, a {
+			display: none;
+		}
+
+		#develop-information {
+			width: 100%;
+			padding: 10px 0;
+			@include flex(column, center, center);
+
+			div {
+				@include flex;
+				
+				p {
+					color: #86939c;
+					font-size: 14px;
+					font-weight: 400;
+				}
+
+				img {
+					margin-right: 5px;
+				}
+			}
+		}
+
+		#second-footer-contact {
+			width: 100%;
+			height: 53px;
+			@include flex(column, center, stretch);
+			flex-wrap: wrap;
+			background: #007eef;
+
+			div {
+				height: 100%;
+				width: 33%;
+				@include flex(column, center, center);
+
+				p {
+					color: #ffffff;
+					font-family: $font;
+					font-size: 14px;
+				}
+			}
+
+			.mail-white {
+				border-right: #ffffff 1px solid;
+				border-left: #ffffff 1px solid;
+			}
+		}
+	} 
 }
 
 </style>

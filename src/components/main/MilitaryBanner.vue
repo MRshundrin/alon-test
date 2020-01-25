@@ -72,32 +72,16 @@
 @media screen and (max-width: 500px) {
   #military-banner {
 		height: 1120px;
-		background-size: cover;
-		background-position: 20px;;
+		background-size: 715px auto;
+		background-position: 70% bottom;
 		background-repeat: no-repeat;
-		color: $main-color;
-		margin-top: 50px;
-		padding: 175px 14%;
-		box-sizing: border-box;
-		position: relative;
+		margin: 0;
+		padding: 160px 7%;
 
 		#information-wrapper {
-			width: 583px;
-			height: 444px;
-			overflow: auto;
-			text-align: right;
-			padding-right: 26px;
-		
-
-				&::-webkit-scrollbar {
-					width: 1px;
-				}
-				&::-webkit-scrollbar-track-piece {
-					background-color: #dfe0e0;
-				}
-				&::-webkit-scrollbar-thumb {
-					background-color: #a8a8a8;
-				}
+			width: 325px;
+			height: 520px;
+			padding-right: 15px;
 		}
 
 		.subtitle {
@@ -107,20 +91,14 @@
 		}
 
 		h2 {
-			font-family: $font-bold;
-			font-size: 48px;
-			line-height: 48px;
+			font-size: 36px;
+			line-height: 36px;
 		}
 		
 		p {
-			font-family: $font;
-			font-size: 18px;
-			margin-top: 10px;
-			line-height: 28px;
-			font-weight: 100;
+			font-size: 20px;
+			line-height: 24px;
 		}
 	}
 }
-
-
 </style>

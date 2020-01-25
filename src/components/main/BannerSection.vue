@@ -64,11 +64,15 @@
 		height: 580px;
 		background-size: cover;
 		background-position: 34% 30%;
+		background: url(../../../public/img/‏‏‏‏‏‏‏‏home/01/banner-mobile.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 323px 15px 54px 15px;
 
 
 		#banner-title {
-			font-family: $font-bold;
 			font-size: 38px;
+			line-height: 38px;
 		}
 		#description {
 			font-size: 28px;
@@ -78,12 +82,7 @@
 			font-size: 20px;
 			font-weight: 300;
 			line-height: 32px;
-			list-style-type: square;
-			color: #007eef;
-
-			span {
-				color: $light-color;
-			}
+			margin-right: 15px;
 		}
 	}
 }

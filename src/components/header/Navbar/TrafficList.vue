@@ -14,7 +14,6 @@
 	</ul>
 </template>
 
-
 <style lang="scss">
 @import '@/variables.scss';
 #traffic-list {

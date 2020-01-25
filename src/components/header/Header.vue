@@ -21,8 +21,10 @@
           </form>
         </div>
       </div>
-      <Navbar/>
-      <button id="mobile-btn-menu"><img src="img/‏‏‏‏‏‏‏‏home/01/mobile_button_menu.png" alt="logo"></button>
+      <NavbarMobile v-if="mobile && mobileMenu"></NavbarMobile>
+      <Navbar v-if="desktop"></Navbar>
+      <button id="mobile-btn-menu" @click="menu"><img src="img/‏‏‏‏‏‏‏‏home/01/mobile_button_menu.png" alt="logo"></button>
+      <button id="close-menu-btn" @click="menu" v-if="mobile && mobileMenu"><i class="fas fa-times"></i></button>
     </div>
     <img src="img/‏‏‏‏‏‏‏‏home/01/logo.png" alt="logo" id="header-logo">
   </header>
@@ -82,7 +84,7 @@
           align-self: stretch;
           outline: none;
 
-          &:focus {
+          option {
             background: #ebeef1;
           }
         }
@@ -128,6 +130,10 @@
   }
 }
 
+#close-menu-btn {
+  display: none;
+}
+
 // mobile version
 
 @media screen and (max-width: 500px) {
@@ -139,10 +145,11 @@
     #header-logo {
       width: 133px;
       height: 44px;
+      margin-left: 5px;
     }
 
     #header-main {
-      width: 65px;
+      width: 75px;
       border: 0;
 
       #header-main-top {
@@ -151,7 +158,7 @@
 
       #mobile-btn-menu {
         display: block;
-        width: 65px;
+        width: 70px;
         height: 65px;
         border: none;
         outline: none;
@@ -160,20 +167,60 @@
         border-left: 2px solid #e1e1e1;
       }
     }
+  }
 
+  #close-menu-btn {
+    display: block;
+    width: 65px;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    right: 257px;
+    z-index: 5;
+    background: white;
+    font-size: 24px;
+    border: none;
   }
 }
-
 </style>
 
 <script>
 
+
+import NavbarMobile from '@/components/header/Navbar/NavbarMobile'
 import Navbar from '@/components/header/Navbar/Navbar'
 
 export default {
   name: 'headerMain',
+  data: () => ({
+    openMobile: false,
+    mobile: false,
+    mobileMenu: false,
+    desktop: true,
+    windowWidth: window.innerWidth
+  }),
+  methods: {
+    menu () {
+      if (this.mobile) {
+        this.mobileMenu = !this.mobileMenu
+      }
+    }
+  },
+  mounted () {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth > 500) {
+        this.desktop = true;
+        this.mobile = false;
+      } else {
+        this.desktop = false;
+        this.mobile = true;
+      }
+    };
+  },
+  
   components: {
-   Navbar
+   Navbar, NavbarMobile
   }
 }
 </script>
